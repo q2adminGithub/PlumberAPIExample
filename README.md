@@ -30,37 +30,19 @@ In order to run this example, docker is needed. Please, checkout source code
 
 Run the following code in the project root directory in a terminal window to build only the API docker containers:
 
-`docker-compose up --build`.
+`docker-compose up --build`
 
 This code runs the docker-compose file 'docker-compose.yml', which starts the API service. The HTTP API can be checked by visiting the URL `http://127.0.0.1:8000/__docs__/` or via HTTP in terminal window. For instance, to test the endpoint `data/validate`` send the POST request as follows:
 
-`curl -s -X POST 'http://localhost:8000/data/validate' \
--H 'Content-Type: application/json' \
--d '{
-  "boolean": true,
-  "max_number": 40,
-  "number_value": 123,
-  "in_array": "setosa",
-  "formula": "y ~ x1 + x2",
-  "number_list": [1, 2, 3, 4],
-  "with_null_list": [1, null, 3, "", "hallo"],
-  "data": [
-    {
-      "columnA": 10,
-      "columnB": 20
-    },
-    {
-      "columnA": 30,
-      "columnB": 40
-    }
-  ]
-}'`
+`curl -s -X POST 'http://localhost:8000/data/validate' \`  
+`-H 'Content-Type: application/json' \`  
+`-d '{"boolean": true,"max_number": 40,"number_value": 123,"in_array": "setosa","formula": "y ~ x1 + x2","number_list": [1, 2, 3, 4],"with_null_list": [1, null, 3, "", "hallo"],"data": [{"columnA": 10,"columnB": 20},{"columnA": 30,"columnB": 40}]}'`
 
 ## Run Tests on Docker Container API
 
 It is necessary to start the the API container separated from the container, which runs the tests. Therefore, run the following code in a terminal window:
 
-`docker compose -f "docker-compose.test.yaml" up  --abort-on-container-exit --exit-code-from test --attach test`.
+`docker compose -f "docker-compose.test.yaml" up  --abort-on-container-exit --exit-code-from test --attach test`
 
 ## CI Pipeline
 
