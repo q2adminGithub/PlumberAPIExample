@@ -1,0 +1,14 @@
+.Rproj.user
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+man/
+docs/
+dev/
+
+*.log
+*.pdf
+*.rda
+*.RData
+*.html

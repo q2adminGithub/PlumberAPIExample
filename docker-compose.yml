@@ -1,0 +1,15 @@
+version: "3.6"
+
+services:
+  rplumber:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: r-plumber
+    volumes:
+      - ./:/app
+    environment:
+      - PORT=${PORT:-8000}
+      - HOST=${HOST:-0.0.0.0}    
+    ports:
+      - "8000:8000"
